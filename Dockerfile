@@ -1,4 +1,3 @@
-# https://pgroonga.github.io/install/debian.html
 FROM postgres:13.2
 RUN set -ex; \
     wget https://packages.groonga.org/debian/groonga-apt-source-latest-buster.deb; \

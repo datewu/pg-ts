@@ -1,5 +1,10 @@
 FROM postgres:13.2
 RUN set -ex; \
+    apt update; \
+    apt install wget; \
+    rm -rf /var/lib/apt/lists/*; 
+
+RUN set -ex; \
     wget https://packages.groonga.org/debian/groonga-apt-source-latest-buster.deb; \
     apt install -y --no-install-recommends ./groonga-apt-source-latest-buster.deb; \
     rm -rf /var/lib/apt/lists/*;  \

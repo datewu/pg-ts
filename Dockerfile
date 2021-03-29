@@ -1,7 +1,7 @@
 FROM postgres:13.2
 RUN set -ex; \
     apt update; \
-    apt install wget; \
+    apt install -y --no-install-recommends wget; \
     rm -rf /var/lib/apt/lists/*; 
 
 RUN set -ex; \

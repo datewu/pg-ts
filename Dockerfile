@@ -1,4 +1,4 @@
-FROM postgres:13.2
+FROM postgres:13.3
 RUN set -ex; \
     apt update; \
     apt install -y --no-install-recommends ca-certificates wget; \

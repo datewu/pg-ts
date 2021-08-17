@@ -1,4 +1,4 @@
-FROM postgres:13.3-buster
+FROM postgres:13.4-buster
 RUN set -ex; \
     apt update; \
     apt install -y --no-install-recommends ca-certificates wget; \

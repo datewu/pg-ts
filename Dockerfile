@@ -8,7 +8,7 @@ RUN set -ex; \
     wget  https://packages.groonga.org/debian/groonga-apt-source-latest-bullseye.deb; \
     apt install -y --no-install-recommends ./groonga-apt-source-latest-bullseye.deb; \
     rm -rf /var/lib/apt/lists/*;  \
-    rm ./groonga-apt-source-latest-buster.deb
+    rm ./groonga-apt-source-latest-bullseye.deb
 
 RUN set -ex; \
     echo "deb http://apt.postgresql.org/pub/repos/apt/ bullseye-pgdg main" | tee /etc/apt/sources.list.d/pgdg.list; \

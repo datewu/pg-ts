@@ -1,4 +1,4 @@
-FROM postgres:14.4-bullseye
+FROM postgres:14.6-bullseye
 RUN set -ex; \
     apt update; \
     apt install -y --no-install-recommends ca-certificates wget; \

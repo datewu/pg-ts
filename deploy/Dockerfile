@@ -1,4 +1,4 @@
-FROM postgres:14.6-bullseye
+FROM postgres:15.1-bullseye
 RUN set -ex; \
     apt update; \
     apt install -y --no-install-recommends ca-certificates wget; \
@@ -12,6 +12,6 @@ RUN set -ex; \
 
 RUN set -ex; \
     apt update; \
-    apt install -y --no-install-recommends postgresql-14-pgdg-pgroonga; \
+    apt install -y --no-install-recommends postgresql-15-pgdg-pgroonga; \
     apt install -y --no-install-recommends groonga-tokenizer-mecab; \
     rm -rf /var/lib/apt/lists/*;  

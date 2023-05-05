@@ -40,12 +40,12 @@ spec:
     spec:
       containers:
       - name: postgres
-        image: ghcr.io/datewu/pg-ts:v14.6-2.4.4
+        image: ghcr.io/datewu/pg-ts:v15.2-3.0.1
         env:
         - name: POSTGRES_USER
           value: tongu
         - name: POSTGRES_PASSWORD
-          value: change_Bi7Aid3shu_to_env_secret
+          value: change_d3shu_to_env_SECRET
         - name: POSTGRES_DB
           value: blog
         ports:
@@ -61,5 +61,4 @@ spec:
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:
-          storage: 25Gi
-
+          storage: 35Gi

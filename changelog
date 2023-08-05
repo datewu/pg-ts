@@ -13,3 +13,5 @@ upgrade to pg v15.2
 upgrade to pgroonga 3.0.1
 
 upgrade to pg v15.3; pgroonga to 3.0.2
+
+upgrade to postgres:15.3-bookworm; pgroonga to 3.1.1

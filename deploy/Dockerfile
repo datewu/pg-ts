@@ -1,14 +1,27 @@
-FROM postgres:15.3-bullseye
+# sudo apt install -y -V ca-certificates lsb-release wget
+# $ wget https://apache.jfrog.io/artifactory/arrow/$(lsb_release --id --short | tr 'A-Z' 'a-z')/apache-arrow-apt-source-latest-$(lsb_release --codename --short).deb
+# $ sudo apt install -y -V ./apache-arrow-apt-source-latest-$(lsb_release --codename --short).deb
+# $ wget https://packages.groonga.org/debian/groonga-apt-source-latest-$(lsb_release --codename --short).deb
+# $ sudo apt install -y -V ./groonga-apt-source-latest-$(lsb_release --codename --short).deb
+# $ sudo apt update
+
+# FROM postgres:15.3-bullseye
+FROM postgres:15.3-bookworm
 RUN set -ex; \
     apt update; \
     apt install -y --no-install-recommends ca-certificates wget; \
     rm -rf /var/lib/apt/lists/*; 
 
+# $ wget https://packages.groonga.org/debian/groonga-apt-source-latest-$(lsb_release --codename --short).deb
+# $ sudo apt install -y -V ./groonga-apt-source-latest-$(lsb_release --codename --short).deb
+
 RUN set -ex; \
-    wget  https://packages.groonga.org/debian/groonga-apt-source-latest-bullseye.deb; \
-    apt install -y --no-install-recommends ./groonga-apt-source-latest-bullseye.deb; \
+    wget https://apache.jfrog.io/artifactory/arrow/$(lsb_release --id --short | tr 'A-Z' 'a-z')/apache-arrow-apt-source-latest-$(lsb_release --codename --short).deb; \
+    apt install -y --no-install-recommends ./apache-arrow-apt-source-latest-$(lsb_release --codename --short).deb; \
+    wget https://packages.groonga.org/debian/groonga-apt-source-latest-$(lsb_release --codename --short).deb; \
+    apt install -y --no-install-recommends ./groonga-apt-source-latest-$(lsb_release --codename --short).deb; \
     rm -rf /var/lib/apt/lists/*;  \
-    rm ./groonga-apt-source-latest-bullseye.deb
+    rm ./*.deb
 
 RUN set -ex; \
     apt update; \

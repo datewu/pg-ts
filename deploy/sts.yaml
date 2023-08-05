@@ -40,14 +40,14 @@ spec:
     spec:
       containers:
       - name: postgres
-        image: ghcr.io/datewu/pg-ts:v15.2-3.0.1
+        image: ghcr.io/datewu/pg-ts:v15.3-3.1.1
         env:
         - name: POSTGRES_USER
           value: tongu
         - name: POSTGRES_PASSWORD
-          value: change_d3shu_to_env_SECRET
+          value: changeme_xxx
         - name: POSTGRES_DB
-          value: blog
+          value: wan
         ports:
         - containerPort: 5432
           name: pg

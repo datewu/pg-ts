@@ -12,14 +12,11 @@ RUN set -ex; \
     apt install -y --no-install-recommends ca-certificates wget; \
     rm -rf /var/lib/apt/lists/*; 
 
-# $ wget https://packages.groonga.org/debian/groonga-apt-source-latest-$(lsb_release --codename --short).deb
-# $ sudo apt install -y -V ./groonga-apt-source-latest-$(lsb_release --codename --short).deb
-
 RUN set -ex; \
-    wget https://apache.jfrog.io/artifactory/arrow/$(lsb_release --id --short | tr 'A-Z' 'a-z')/apache-arrow-apt-source-latest-$(lsb_release --codename --short).deb; \
-    apt install -y --no-install-recommends ./apache-arrow-apt-source-latest-$(lsb_release --codename --short).deb; \
-    wget https://packages.groonga.org/debian/groonga-apt-source-latest-$(lsb_release --codename --short).deb; \
-    apt install -y --no-install-recommends ./groonga-apt-source-latest-$(lsb_release --codename --short).deb; \
+    wget https://apache.jfrog.io/artifactory/arrow/debian/apache-arrow-apt-source-latest-bookworm.deb; \
+    apt install -y --no-install-recommends ./apache-arrow-apt-source-latest-bookworm.deb; \
+    wget https://packages.groonga.org/debian/groonga-apt-source-latest-bookworm.deb; \
+    apt install -y --no-install-recommends ./groonga-apt-source-latest-bookworm.deb; \
     rm -rf /var/lib/apt/lists/*;  \
     rm ./*.deb
 

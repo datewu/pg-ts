@@ -5,7 +5,7 @@
 # $ sudo apt install -y -V ./groonga-apt-source-latest-$(lsb_release --codename --short).deb
 # $ sudo apt update
 
-FROM postgres:15.4-bookworm
+FROM postgres:16.0-bookworm
 RUN set -ex; \
     apt update; \
     apt install -y --no-install-recommends ca-certificates wget; \
@@ -21,6 +21,6 @@ RUN set -ex; \
 
 RUN set -ex; \
     apt update; \
-    apt install -y --no-install-recommends postgresql-15-pgdg-pgroonga; \
+    apt install -y --no-install-recommends postgresql-16-pgdg-pgroonga; \
     apt install -y --no-install-recommends groonga-tokenizer-mecab; \
     rm -rf /var/lib/apt/lists/*;  

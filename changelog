@@ -25,3 +25,5 @@ upgrade to postgres:16.3-bookworm; pgroonga to 3.2.1
 upgrade to postgres:16.4-bookworm; pgroonga to 3.2.2
 
 upgrade to postgres:17.2-bookworm; pgroonga to 3.2.5
+
+upgrade to postgres:17.4-bookworm; pgroonga to 4.0.1

@@ -1,5 +1,7 @@
-Dockerfile for 
-[pgroonga extension]( https://pgroonga.github.io/install/debian.html) for postgresql full-text search
+# A simple Dockerfile for pgroonga
+
+[pgroonga extension]( https://pgroonga.github.io/install/debian.html) a
+full-text search postgresql extension.
 
 [tutorial](https://pgroonga.github.io/tutorial/)
 

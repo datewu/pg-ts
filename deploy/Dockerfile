@@ -5,7 +5,7 @@
 # $ sudo apt install -y -V ./groonga-apt-source-latest-$(lsb_release --codename --short).deb
 # $ sudo apt update
 
-FROM postgres:17.5-bookworm
+FROM postgres:17.6-bookworm
 RUN set -ex; \
     apt update; \
     apt install -y --no-install-recommends ca-certificates wget; \

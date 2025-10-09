@@ -5,22 +5,20 @@
 # $ sudo apt install -y -V ./groonga-apt-source-latest-$(lsb_release --codename --short).deb
 # $ sudo apt update
 
-FROM postgres:17.6-bookworm
+FROM postgres:18.0-trixie
 RUN set -ex; \
     apt update; \
-    apt install -y --no-install-recommends ca-certificates wget; \
+    apt install -y --no-install-recommends ca-certificates lsb-release wget; \
     rm -rf /var/lib/apt/lists/*; 
 
 RUN set -ex; \
-    wget https://apache.jfrog.io/artifactory/arrow/debian/apache-arrow-apt-source-latest-bookworm.deb; \
-    apt install -y --no-install-recommends ./apache-arrow-apt-source-latest-bookworm.deb; \
-    wget https://packages.groonga.org/debian/groonga-apt-source-latest-bookworm.deb; \
-    apt install -y --no-install-recommends ./groonga-apt-source-latest-bookworm.deb; \
+    wget https://packages.groonga.org/debian/groonga-apt-source-latest-$(lsb_release --codename --short).deb; \
+    apt install -y -V --no-install-recommends ./groonga-apt-source-latest-$(lsb_release --codename --short).deb; \
     rm -rf /var/lib/apt/lists/*;  \
     rm ./*.deb
 
 RUN set -ex; \
     apt update; \
-    apt install -y --no-install-recommends postgresql-17-pgdg-pgroonga; \
+    apt install -y --no-install-recommends postgresql-18-pgdg-pgroonga; \
     apt install -y --no-install-recommends groonga-tokenizer-mecab; \
     rm -rf /var/lib/apt/lists/*;  

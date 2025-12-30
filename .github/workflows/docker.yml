@@ -18,7 +18,7 @@ jobs:
 
     steps:
     - name: checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: prepare
       id: prep
@@ -36,13 +36,14 @@ jobs:
         #if [ "${{ github.event_name }}" = "push" ]; then
         #  TAGS="$TAGS,${DOCKER_IMAGE}:sha-${GITHUB_SHA::8}"
         #fi
-        echo ::set-output name=version::${VERSION}
-        echo ::set-output name=tags::${TAGS}
-        echo ::set-output name=current_time::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
-        echo ::set-output name=git_description::$(git describe --always --dirty --tags --long)
+        echo "version=${VERSION}" >> $GITHUB_OUTPUT
+        echo "tags=${TAGS}" >> $GITHUB_OUTPUT
+        #echo "current_time=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_OUTPUT
+        echo "current_time=$(date -u +'%m-%d')" >> $GITHUB_OUTPUT
+        echo "git_description=$(git describe --always --dirty --tags --long)" >> $GITHUB_OUTPUT
 
     - name: Log in to the Container registry
-      uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+      uses: docker/login-action@v3
       with:
         registry: ${{ env.REGISTRY }}
         username: ${{ github.actor }}
@@ -50,7 +51,7 @@ jobs:
 
     - name: buil and push 
       id: docker_build
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v6
       with:
         context: .
         file: ./deploy/Dockerfile

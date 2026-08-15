@@ -40,7 +40,7 @@ spec:
     spec:
       containers:
       - name: postgres
-        image: ghcr.io/datewu/pg-ts:v18.4-4.0.6
+        image: ghcr.io/datewu/pg-ts:v18.6-4.0.8
         env:
         - name: POSTGRES_USER
           value: tongu

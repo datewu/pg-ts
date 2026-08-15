@@ -5,7 +5,7 @@
 # $ sudo apt install -y -V ./groonga-apt-source-latest-$(lsb_release --codename --short).deb
 # $ sudo apt update
 
-FROM postgres:18.4-trixie
+FROM postgres:18.6-trixie
 RUN set -ex; \
     apt update; \
     apt install -y --no-install-recommends ca-certificates lsb-release wget; \
